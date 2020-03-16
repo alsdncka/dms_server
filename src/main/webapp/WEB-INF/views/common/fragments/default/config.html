@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:fragment="configFragment">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<!-- 공통으로 쓰이는 css파일을넣는다.-->
+<title>DMS</title>
+
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/common/default.css" />
+<link rel="stylesheet" href="static/css/common/header.css" />
+<link rel="stylesheet" href="static/css/common/footer.css" />
+<link rel="stylesheet" th:href="${'static/css/'+pageC+'/'+pageD+'.css'}" />
+<link rel="stylesheet" href="static/css/common/jquery-modal.css" />
+<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="static/css/common/ui.fancytree.css" class="skinswitcher" />
+<link rel="stylesheet" href="static/css/common/jquery.contextMenu.min.css" />
+<!-- 공통으로 쓰이는 css파일을넣는다.-->
+
+<script src="static/js/common/jquery.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="static/js/common/jquery-modal.js"></script>
+<script src="static/js/common/default.js"></script>
+<script src="static/js/common/header.js"></script>
+<script src="static/js/common/footer.js"></script>
+<script th:src="${'static/js/'+pageC+'/'+pageD+'.js'}"></script>
+<script src="static/js/common/jquery.fancytree.js"></script>
+<script src="static/js/common/jquery.fancytree.glyph.js"></script>
+<script src="static/js/common/jquery.fancytree.edit.js"></script>
+<script src="static/js/common/jquery.fancytree.contextMenu.js"></script>
+ 	<script src="//cdn.jsdelivr.net/npm/jquery-contextmenu@2.6.4/dist/jquery.contextMenu.min.js"></script>
+
+
+</head>
+
+</html>

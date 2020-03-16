@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/fragments/modal/config :: modalConfigFragment"></head>
+<div class="modal_content" >
+
+	<div class="caption">
+		<div class="title">
+			유저 추가
+		</div>
+		
+	</div>
+	<div class="content">
+	<form id="form" name="form" onsubmit="return false">
+		<table class="table">
+			<colgroup>
+			<col width="50%">
+			<col width="50%">
+			</colgroup>
+			
+			<tbody>
+			<tr>
+				<th>아이디</th>
+				<td>
+				<input id="userId" name="userId" type="text" th:if="${pageD}=='add'">
+				<input id="userId" name="userId" type="text" th:if="${pageD}=='edit'" th:value="${user.userId}" readonly="readonly">
+				
+				</td>
+				</tr>
+				<tr>
+				<th>비밀번호</th>
+				<td>
+				<input id="userPw" name="userPw" type="password" >
+				</td>
+				</tr>
+				<tr>
+				<th>비밀번호 확인</th>
+				<td><input id="userPwChk" name="userPwChk" type="password"></td>
+				</tr>
+				<tr>
+				<th>이름</th>
+				<td>
+				<input id="userName" name="userName" type="text" th:if="${pageD}=='add'">
+				<input id="userName" name="userName" type="text" th:if="${pageD}=='edit'" th:value="${user.userName}">
+				</td>
+				</tr>
+				<tr>
+				<th>이메일</th>
+				<td>
+				<input id="userEmail" name="userEmail" type="text" placeholder="example@sample.xyz" th:if="${pageD}=='add'">
+				<input id="userEmail" name="userEmail" type="text" placeholder="example@sample.xyz" th:if="${pageD}=='edit'" th:value="${user.userEmail}">
+				</td>
+				</tr>
+				<tr>
+				<th>역활</th>
+				<td>
+				
+				<select id="userRole" name="userRole" th:if="${pageD}=='add'">
+					<option value="R" selected="selected">설계자</option>
+					<option value="D">개발자</option>
+				</select>
+				<select id="userRole" name="userRole" th:if="${pageD}=='edit'">
+					<option value="R" th:selected="${user.userRole}=='R'">설계자</option>
+					<option value="D" th:selected="${user.userRole}=='D'">개발자</option>
+				</select>
+				
+				
+				
+				</td>
+				</tr>
+			</tbody>
+			
+			
+		</table>
+		
+		<div class="bt_box">
+		<div class="box">
+		<button id="userAddBt" th:if="${pageD}=='add'">생성</button>
+		<button id="userEditBt" th:if="${pageD}=='edit'">수정</button>
+		</div>
+		
+		
+		</div>
+		</form>
+	</div>
+
+</div>
+</html>

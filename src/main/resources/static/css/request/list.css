@@ -1,0 +1,148 @@
+.content_box{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+}
+
+.side_box{
+	width: 350px;
+	border: 1px solid gray;
+	display: flex;
+	flex-direction: column;
+}
+
+.side_box #search_box{
+	height: 30px;
+		display:flex;
+		flex-direction:row;
+		padding: 10px;
+}
+#search_box .inp_box{
+	flex: 1;
+}
+#search_box .inp_box input{
+	width: 100%;
+	height: 25px;
+	border: 0px;
+	border-bottom: 1px solid gray;
+	font-size: 14px;
+	font-weight:bold;
+	padding-left: 5px;
+}
+
+#search_box .bt_box{
+	width: 100px;
+}
+
+#search_box .bt_box button{
+	width: 100%;
+}
+
+.side_box .treeview{
+	padding:20px;
+	
+	flex: 1;
+}
+
+.menuBox{
+	position:absolute;
+	min-width: 150px;
+	border: 1px solid gray;
+	background-color: white;
+}
+.menuBox .title{
+	position:relative;
+	height: 20px;
+	text-align: center;
+	background-color: black;
+	color:white;
+	font-weight: bold;
+}
+.menu_list li{
+	position:relative;
+	cursor: pointer;
+	padding-left: 5px;
+	height: 25px;
+	line-height: 25px;
+	font-weight: bold;
+	font-size: 12px;
+}
+.menu_list li:hover{
+	background-color: gray;;
+}
+.content_views{
+	flex: 1;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.content_view{
+	flex: 1;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.content_view .caption{
+	height: 100px;
+	line-height:100px;
+	vertical-align:middle;
+	display: flex;
+	flex-direction: row;
+}
+.content_view .caption .title{
+	flex: 1;
+	text-align: left;
+	font-size: 20px;
+	font-weight: bold;
+}
+.content_view .caption .caption_bt{
+	flex:1;
+	text-align: right;
+}
+.content_view .caption .caption_bt input{
+	width: 100px;
+	height: 50px;
+	font-size: 12px;
+	font-weight: bold;
+	white-space: pre-line;
+	
+	
+}
+.content_view .list_table{
+	padding-top:50px;
+	flex: 1;
+}
+.content_view .list_table .table{
+	width: 100%;
+}
+
+.content_view .list_table .table thead tr{
+	border-bottom: 1px solid gray;
+	height: 25px;
+}
+
+.content_view .list_table .table tbody{
+	text-align: center;
+	font-weight: bold;
+}
+
+.content_view .list_table .table tbody .active{
+	background-color: rgba(0,0,0,0.3);
+}
+.foot_box{
+	height: 50px;
+	text-align: right;
+}
+.foot_box input{
+	width: 100px;
+	height: 35px;
+	font-size: 12px;
+	font-weight: bold;
+}
+.empty_folder .fancytree-title{
+	color:red;
+}

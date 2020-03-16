@@ -1,0 +1,208 @@
+.modal_content{
+	display: flex;
+	flex-direction: column;;
+}
+.modal_content .caption{
+	height: 70px;
+}
+.modal_content .content{
+	flex:1;
+	display: flex;
+	flex-direction: column;
+}
+
+.modal_content .content .caption{
+	border: none;
+	font-weight: bold;
+	padding: 5px;
+	height: 30px;
+	line-height: 30px;
+}
+.modal_content .content .caption .title{
+	flex: none;
+	padding: 3px;
+	width: 100px;
+	
+}
+.modal_content .content .caption .inp_box{
+	flex: none;
+}
+.inp_box input{
+	height: 30px;
+	width: 250px;
+	border: none;
+	border-bottom: 1px solid gray;
+	padding-left: 5px;
+}
+.area{
+	display:flex;
+	flex-direction:column;
+	flex: 1;
+}
+.area .caption{
+	height: 20px;
+	
+	
+}
+.area .caption .title{
+	font-size: 15px;
+}
+.tabs li{
+	float: left;
+	width: 100px;
+	border: 1px solid gray;
+	border-collapse:0px;
+	border-spacing:0px;
+	border-top-left-radius:5px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	margin-left: 5px;
+	cursor: pointer;
+	font-weight: bold;
+	background-color: rgba(0,0,0,0.1)
+	
+}
+
+.tabs ul .active{
+	background-color: white;
+}
+.tabs_bt_box{
+	height: 30px;
+	padding: 5px;
+	text-align: right;
+}
+.tab_container{
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	border: 1px solid rgba(0,0,0,0.1);
+}
+.tab_content{
+	flex:1;
+	
+}
+.item_table{
+	display: flex;
+	flex-direction: row;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.item_table .label{
+	width: 100px;
+	text-align: center;
+	font-weight: bold;
+	line-height: 25px;
+	height: 25px;
+	
+}
+.item_table .inp_text{
+	flex: 1;
+}
+
+.item_table .inp_text input{
+	width:200px;
+	border: none;
+	border-bottom: 1px solid gray;
+	height: 25px;
+	font-size: 15px;
+	padding-left: 5px;
+}
+#desc{
+	width:500px;
+	height: 100px;
+}
+#tab_source{
+	flex:1;
+	display: flex;
+	flex-direction: row;
+}
+#tab_source .div{
+	flex: 1;
+	border: 1px solid rgba(0,0,0,0.1);
+	display: flex;
+	flex-direction: column;
+}
+.div button{
+	width: 25px;
+	height: 25px;
+}
+.select_box{
+	text-align: center;
+	padding: 5px;
+}
+.table_box{
+	flex:1;
+	margin:auto;
+	width: 90%;
+}
+.list_table{
+	
+	width: 100%;
+}
+.list_table thead tr{
+	display:flex;
+	flex-direction:row;
+	border-bottom: 1px solid gray;
+
+	width: 100%;
+}
+.list_table thead th{
+		height:30px;
+		line-height:30px;
+	flex: 1;
+	font-size: 13px;
+}
+
+.list_table tbody tr{
+		display:flex;
+	flex-direction:row;
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+	cursor:pointer;
+	width: 100%;
+}
+.list_table tbody tr:hover{
+	background-color: rgba(0,0,0,0.2);
+}
+
+.list_table tbody td{
+	text-align:center;
+		height:25px;
+		line-height:25px;
+	flex: 1;
+	font-size: 13px;
+}
+.list_table tbody .active{
+	background-color: rgba(0,0,0,0.2);
+}
+
+.div textarea{
+	flex: 1;
+}
+.mapping_table{
+	border: 1px solid black;
+}
+#mappgin_area .mapping_box{
+padding:100px;
+	width: 200px;
+}
+.mapping_box .mapping_table thead{
+	text-align: center;
+	font-size: 13px;
+	font-weight: bold;
+	background-color: black;
+	color:white;
+	height: 20px;
+}
+.mapping_box .mapping_table tr{
+	cursor: pointer;
+	text-align: center;
+	font-size: 13px;
+	height: 25px;
+}
+.mapping_box .mapping_table tr:hover {
+	background-color: rgba(0,0,0,0.1);
+}
+
+.no-drag {-ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;}
+

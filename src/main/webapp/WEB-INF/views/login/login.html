@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="common/layout/default">
+
+
+<div class="content" layout:fragment="content">
+
+	<div class="box">
+		<div class="caption">
+			<div class="title">Data Management Service</div>
+		</div>
+		<div class="box2">
+		<form id="form" name="form" onsubmit="return false">
+			<div class="input_box">
+				<label for="userId">계정</label>
+				<div>
+					<input class="w8" id="userId" name="userId" type="text" placeholder="">
+				</div>
+			</div>
+			<div class="input_box">
+				<label for="userPw">비밀번호</label>
+				<div>
+					<input class="w8" id="userPw" name="userPw" type="password" placeholder="">
+				</div>
+			</div>
+	</form>
+			<div class="button_box">
+				<button id="loginBt">로그인</button>
+			</div>
+			<div class="obj_box"></div>
+		</div>
+	</div>
+
+
+</div>
+</html>

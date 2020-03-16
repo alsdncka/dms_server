@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="common/layout/default">
+
+
+
+<div class="content" layout:fragment="content">
+	<div class="content_box">
+	<div class="main_box">
+	
+		<div class="caption">
+			<div class="title">CONNECTION LIST</div>
+			<div class="bt_div">
+				<button id="addModalBt">커넥션 추가</button>
+		</div>
+		</div>
+		<div class="box2">
+			<table class="w1">
+				<colgroup>
+				<col width="*">
+				<col width="15%">
+				<col width="15%">
+				<col width="15%">
+				<col width="15%">
+				<col width="15%">
+				<col width="15%">
+				</colgroup>
+				<thead>
+					<tr>
+						<th>커넥션 이름</th>
+						<th>타입</th>
+						<th>DB</th>
+						<th>커넥션 문자열</th>
+						<th>코드 페이지</th>
+						<th>커넥션 유저</th>
+						<th>등록 일자</th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr th:each=list:${list} class="list_item" th:id=${list.connId}>
+				<td th:text=${list.connName} ></td>
+				<td th:text=${list.connType} ></td>
+				<td th:text=${list.connDbType} ></td>
+				<td th:text=${list.connString} ></td>
+				<td th:text=${list.connCodePage} ></td>
+				<td th:text=${list.connUser} ></td>
+				<td th:text=${list.regDtm} ></td>
+				</tr>
+				
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div id="settingsModal"></div>
+</div>
+</html>

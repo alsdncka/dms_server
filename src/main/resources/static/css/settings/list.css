@@ -1,0 +1,46 @@
+
+.content_box table tr{
+	height: 30px;
+	cursor: pointer;
+}
+.content_box table tr:hover{
+	background-color: rgba(0,0,0,0.1);
+}
+
+.modal_content .content{
+	
+}
+
+.modal_content .cls_bt{
+	width: 30px;
+	height: 30px;
+}
+
+.modal_content table{
+	
+	width: 100%;
+}
+
+.modal_content table th{
+	text-align: center;
+	height: 50px;
+}
+
+.modal_content table td input,select{
+	width:70%;
+	height: 25px;
+	font-size: 12px;
+}
+
+.bt_box{
+	padding:50px;
+	display: flex;
+	flex-direction: row;
+}
+.bt_box .box{
+	height:50px;
+	flex: 1;
+	text-align: center;
+}
+
+

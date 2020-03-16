@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:fragment="modalConfigFragment">
+<meta charset="UTF-8" />
+<!-- 공통으로 쓰이는 css파일을넣는다.-->
+<link rel="stylesheet" href="static/css/common/modal.css" />
+<link rel="stylesheet" th:href="${'static/css/'+pageC+'/'+pageD+'.css'}" />
+
+<!-- 공통으로 쓰이는 css파일을넣는다.-->
+
+<script th:src="${'static/js/'+pageC+'/'+pageD+'.js'}"></script>
+
+
+</head>
+
+</html>

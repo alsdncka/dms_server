@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<script th:src="${'static/js/'+pageC+'/'+pageD+'.js'}"></script>
+<div id="targetConnectionView" class="content_view" th:logic_id="${logicId}">
+	<div class="caption">
+		<div class="title" >TARGET CONNECTION</div>
+		<div class="caption_bt">
+			<input type="button" id="addConn" class="pbt" value="ADD CONNECTION">
+			<input type="button" id="delConn" value="DELETE CONNECTION">
+		</div>
+	</div>
+	<div class="list_table">
+		<table class="table conn_table" id="tgt_conn_table">
+			<colgroup>
+				<col width="20%">
+				<col width="20%">
+				<col width="20%">
+				<col width="20%">
+				<col width="20%">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>CONN NAME</th>
+					<th>CONN DB</th>
+					<th>CONN STRING</th>
+					<th>HOST</th>
+					<th>CONN USER</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr th:each=l:${list} class="tgt_conn_item" th:tgt_conn_id="${l.targetConnId}" th:tgt_conn_name="${l.connVo.connName}">
+			<td th:text="${l.connVo.connName}"></td>
+			<td th:text="${l.connVo.connDbType}"></td>
+			<td th:text="${l.connVo.connString}"></td>
+			<td th:text="${l.connVo.connHost}"></td>
+			<td th:text="${l.connVo.connUser}"></td>
+			
+			</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="foot_box">
+		<input type="button" id="tgt_conn_save_bt" class="pbt" value="SAVE" >
+	</div>
+</div>
+</html>

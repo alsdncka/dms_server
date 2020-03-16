@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<script th:src="${'static/js/'+pageC+'/'+pageD+'.js'}"></script>
+<link rel="stylesheet" th:href="${'static/css/'+pageC+'/'+pageD+'.css'}" />
+
+<div id="stepView" class="content_view" th:logic_id="${logicId}">
+	<div class="caption">
+		<div class="title">STEP</div>
+		<div class="caption_bt">
+
+			<input type="button" id="addStep" class="pbt" value="ADD STEP">
+			<input type="button" id="delStep" value="DELETE STEP">
+		</div>
+	</div>
+	<div class="step_table">
+		<div class="step_list">
+			<div class="step_box" th:each=l:${list} th:num="${l.stepNum}">
+				<div class="step_label" th:text="STEP_+${l.stepNum}"></div>
+				<div class="ud_box">
+					<input type="button" class="mBt" id="upStep" value="▲"> <input
+						type="button" class="mBt" id="downStep" value="▼">
+				</div>
+			</div>
+		</div>
+		<div class="step_query">
+		<div class="query_box">
+			<textarea class="textarea" th:each=l:${list} th:num="${l.stepNum}"
+				th:text="${l.query}"></textarea>
+		</div>
+		<div class="comment_box">
+			<textarea class="commentarea" placeholder="최대 1000자" th:each=l:${list} th:num="${l.stepNum}" th:text="${l.stepComment}"></textarea>
+		</div>
+		</div>
+	</div>
+	<div class="foot_box">
+		<input type="button" id="step_save_bt" class="pbt" value="SAVE">
+	</div>
+</div>
+</html>

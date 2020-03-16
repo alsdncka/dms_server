@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/fragments/modal/config :: modalConfigFragment"></head>
+
+
+
+<div class="modal_content" >
+
+	<div class="caption">
+		<div class="title">
+			ADD CONNECTION
+		</div>
+	</div>
+	<div class="content">
+	<div class="search_box">
+		<input type="text" id="input_search" placeholder="전체 검색">
+	</div>
+	
+			<table class="table" id="add_conn_table">
+			<colgroup>
+				<col width="20%">
+				<col width="20%">
+				<col width="20%">
+				<col width="20%">
+				<col width="20%">
+			</colgroup>
+				<thead>
+					<tr>
+						<th>CONN NAME</th>
+						<th>CONN DB TYPE</th>
+						<th>CONN STRING</th>
+						<th>HOST</th>
+						<th>CONN USER</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
+			</table>
+	</div>
+	<div class="save_box">
+		<input type="button" id="selectBt"  class="pbt" value="SELECT">
+		
+	</div>
+</div>
+</html>

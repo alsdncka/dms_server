@@ -1,0 +1,67 @@
+#stepView .mBt{
+	width: 30px;
+	height: 30px;
+}
+
+.step_table{
+	flex:1;
+	display: flex;
+	flex-direction: row;
+	border: 1px solid gray;
+}
+
+.step_list{
+	width: 200px;
+	border-right: 1px solid gray;
+}
+.step_list .step_box{
+	height: 50px;
+	line-height:50px;
+	text-align: center;
+	font-weight: bold;
+	cursor: pointer;
+	border-bottom: 1px solid gray;
+	display: flex;
+	flex-direction: row;
+}
+.step_box .step_label{
+	flex: 1;
+}
+.step_box .ud_box{
+	flex: 1;
+}
+
+.step_list .active{
+	background-color: rgba(0,0,0,0.3);
+}
+
+.step_query{
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.query_box{
+	flex: 1;
+	overflow: auto;
+	display: flex;
+	flex-direction: row;
+	flex-direction: column;
+}
+.query_box .textarea{
+	display:none;
+	flex:1;
+	height: 100%;
+	overflow: visible;
+}
+.step_query .comment_box{
+	height: 200px;
+	display: flex;
+	flex-direction: row;
+	flex-direction: column;
+}
+.step_query .comment_box .commentarea{
+	display:none;
+	flex:1;
+	overflow: visible;
+}

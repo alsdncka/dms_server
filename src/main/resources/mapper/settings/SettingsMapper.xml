@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.di.xyz.Settings.SettingsMapper">
+
+	<insert id="addConnection" parameterType="connectionVo">
+		INSERT INTO DMS_CONNECTION(
+		CONN_ID,
+		CONN_NAME,
+		CONN_TYPE,
+		CONN_DB_TYPE,
+		CONN_STRING,
+		CONN_CODE_PAGE,
+		CONN_USER,
+		CONN_PW,
+		REG_DTM,
+		REG_USER
+		)VALUES(
+		#{connId},
+		#{connName},
+		#{connType},
+		#{connDbType},
+		#{connString},
+		#{connCodePage},
+		#{connUser},
+		#{connPw},
+		#{regDtm},
+		#{regUser}
+		)
+	</insert>	
+	
+	<update id="editConnection" parameterType="connectionVo">
+	UPDATE DMS_CONNECTION
+	SET 
+	CONN_NAME =#{connName},
+	CONN_TYPE = #{connType},
+	CONN_DB_TYPE =#{connDbType},
+	CONN_STRING = #{connString},
+	CONN_CODE_PAGE = #{connCodePage},
+	CONN_USER = #{connUser},
+	CONN_PW = #{connPw},
+	UDT_DTM = #{udtDtm}
+	WHERE 1=1
+	AND CONN_ID = #{connId}
+	</update>
+	
+	<select id="getConnectionList" parameterType="connectionVo" resultType="connectionVo">
+		SELECT * FROM DMS_CONNECTION
+		WHERE 1=1
+		<if test="connName != null and connName != null">
+		AND CONN_NAME LIKE '%${connName}%'
+		</if>
+	</select>
+	
+	<select id="getConnection" parameterType="connectionVo" resultType="connectionVo">
+		SELECT * FROM DMS_CONNECTION
+		WHERE 1=1
+		<if test="connId != null and connId != '' ">
+		AND CONN_ID = #{connId}
+		</if>
+		<if test="connName != null and connName != '' ">
+		AND CONN_NAME = #{connName}
+		</if>
+		
+	</select>
+
+
+</mapper>

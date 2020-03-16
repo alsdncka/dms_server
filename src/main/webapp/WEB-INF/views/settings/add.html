@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/fragments/modal/config :: modalConfigFragment"></head>
+
+
+
+<div class="modal_content" >
+
+	<div class="caption">
+		<div class="title">
+			커넥션 추가
+		</div>
+		
+	</div>
+	<div class="content">
+	<form id="form" name="form" onsubmit="return false">
+		<table class="table">
+			<colgroup>
+			<col width="50%">
+			<col width="50%">
+			</colgroup>
+			
+			<tbody>
+			<tr>
+				<th>커넥션 이름</th>
+				<td>
+				
+				
+				<input id="connName" name="connName" type="text" th:if="${pageD}=='add'">
+				<input id="connName" name="connName" type="text" th:if="${pageD}=='edit'" th:value="${conn.connName}" >
+				<input id="connId" name="connId" type="hidden" th:if="${pageD}=='edit'" th:value="${conn.connId}" >
+				</td>
+				</tr>
+				<tr>
+				<th>커넥션 타입</th>
+				<td>
+				
+				<select id="connType" name="connType" th:if="${pageD}=='add'">
+					<option value="T" selected="selected">TNS</option>
+					<option value="H" >직접 입력(준비중)</option>
+				</select>
+				
+				<select id="connType" name="connType" th:if="${pageD}=='edit'">
+					<option value="T" th:selected="${conn.connType}=='T'">TNS</option>
+					<option value="H" th:selected="${conn.connType}=='H'">직접 입력(준비중)</option>
+				</select>
+				
+				</td>
+				</tr>
+				<tr>
+				<th>DB</th>
+				<td>
+				<select id="connDbType" name="connDbType" th:if="${pageD}=='add'">
+				<option value="ORACLE" selected="selected" >ORACLE</option>
+					<option value="MSSQL" >MSSQL</option>
+					<option value="MYSQL" >MYSQL</option>
+					<option value="POSTGRESQL" >POSTGRESQL</option>
+				</select>
+				
+				<select id="connDbType" name="connDbType" th:if="${pageD}=='edit'">
+					<option value="ORACLE" th:selected="${conn.connDbType}=='ORACLE'">ORACLE</option>
+					<option value="MSSQL" th:selected="${conn.connDbType}=='MSSQL'">MSSQL</option>
+					<option value="MYSQL" th:selected="${conn.connDbType}=='MYSQL'">MYSQL</option>
+					<option value="POSTGRESQL" th:selected="${conn.connDbType}=='POSTGRESQL'">POSTGRESQL</option>
+				</select>
+				
+				</td>
+				</tr>
+				<tr>
+				<th>커넥션 문자열</th>
+				<td>
+				<input id="connString" name="connString" type="text" th:if="${pageD}=='add'">
+				<input id="connString" name="connString" type="text" th:if="${pageD}=='edit'" th:value="${conn.connString}">
+				</td>
+				</tr>
+				<tr>
+				<th>코드 페이지</th>
+				<td>
+				<input id="connCodePage" name="connCodePage" type="text"  th:if="${pageD}=='add'">
+				<input id="connCodePage" name="connCodePage" type="text" th:if="${pageD}=='edit'" th:value="${conn.connCodePage}">
+				</td>
+				</tr>
+				<tr>
+				<th>커넥션 계정</th>
+				<td>
+				
+				<input id="connUser" name="connUser" type="text"  th:if="${pageD}=='add'">
+				<input id="connUser" name="connUser" type="text"  th:if="${pageD}=='edit'" th:value="${conn.connUser}">
+				
+				</td>
+				</tr>
+				
+				<tr>
+				<th>커넥션 패스워드</th>
+				<td>
+				
+				<input id="connPw" name="connPw" type="password"  >
+				
+				</td>
+				</tr>
+				
+			</tbody>
+			
+			
+		</table>
+		
+		<div class="bt_box">
+		<div class="box">
+		<button id="connTest" class="npbt" >커넥션 테스트</button>
+		<button id="connAddBt" class="pbt" th:if="${pageD}=='add'">생성</button>
+		<button id="connEditBt" class="pbt" th:if="${pageD}=='edit'">수정</button>
+		</div>
+		
+		
+		</div>
+		</form>
+	</div>
+
+</div>
+</html>

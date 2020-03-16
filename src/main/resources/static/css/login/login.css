@@ -1,0 +1,81 @@
+
+.box{
+	width:700px;
+	border: 1px solid rgba(0,0,0,0.3);
+	margin:auto;
+	margin-top: 100px;
+	padding-top: 50px;
+	padding-bottom: 25px;
+	
+}
+.box .caption{
+	
+	text-align: center;
+}
+.box .title{
+	font-size: 20px;
+	font-weight: bold;
+	
+}
+
+
+
+
+.box2{
+	width: 400px;
+	margin: auto;
+	padding: 50px;
+	text-align: center;
+}
+
+.box2 .input_box{
+	
+	text-align:left;
+	margin-top: 25px;
+	text-align: center;
+	
+}
+
+.box2 .input_box label{
+	font-size: 12px;
+}
+.box2 .input_box div{
+	text-align: center;
+}
+.box2 .input_box input{
+	height: 30px;
+	padding-left: 5px;
+	font-size: 12px;
+	margin-top: 5px;
+}
+.button_box{
+	
+	margin-top: 70px;
+	text-align: center;
+}
+.button_box button{
+	font-size: 12px;
+	width: 200px;
+	background-color: black;
+	border: none;
+	color:white;
+	height: 50px;
+}
+
+.text_bt{
+	display: block;
+	clear: left;
+	font-size: 12px;
+	text-align: center;
+	padding-top: 5px;
+	color: gray;
+	text-decoration: underline;
+	
+}
+.obj_box{
+	margin-top: 20px;
+}
+
+.text_bt span{
+	cursor: pointer;
+}

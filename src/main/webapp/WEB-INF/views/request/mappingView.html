@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<script th:src="${'static/js/'+pageC+'/'+pageD+'.js'}"></script>
+<link rel="stylesheet" th:href="${'static/css/'+pageC+'/'+pageD+'.css'}" />
+<div id="mappingView" class="content_view" th:logic_id="${logicId}" th:mapSize="${mapSize}">
+	<div class="caption">
+		<div class="title" >MAPPING</div>
+		
+	</div>
+	<div class="mapping_table">
+		<div class="tableDivBox">
+		<div id="sourceTableDiv" class="tableDiv">
+			<div id="sourceTable" class="column_table">
+			<div class="label">컬럼명</div>
+			<div class="colDiv" th:if="${SCLSize}==0">
+				<div class="notCol">
+					등록된 컬럼이 없습니다.
+					<br><br>
+					STEP 에 조회 쿼리를 추가해주세요.
+					
+				</div>
+			</div>
+			<div th:unless="${SCLSize}==0" class="colDiv">
+			
+				<div class="colList sColList" type="source"  th:s_col_name="${sc.sourceColumnName}" th:each=sc:${SCL} th:text="${sc.sourceColumnName}">
+				</div>
+			</div>
+			</div>
+		</div>
+		
+		
+		<div id="tagetTableDiv" class="tableDiv">
+		<div id="targetTable" class="column_table">
+			<div class="label">컬럼명</div>
+			<div class="colDiv" th:if="${TCLSize}==0">
+				<div class="notCol">
+					등록된 컬럼이 없습니다.
+					<br><br>
+					TARGET CONNECTION 을 등록해주세요.
+					
+				</div>
+			</div>
+			<div class="colDiv"  th:unless="${TCLSize}==0">
+				<div class="colList tColList" type="target" th:t_col_name="${tc.targetColumnName}" th:each=tc:${TCL} th:text="${tc.targetColumnName}">
+				</div>
+			</div>
+			</div>
+		</div>
+		</div>
+		<svg class="line_table">
+		<line th:each="m:${map}" th:s_col_name="${m.sourceColumnName}" th:t_col_name="${m.targetColumnName}"></line>
+	</svg>
+	</div>
+	<div class="foot_box">
+		<input type="button" id="mapping_save_bt" class="pbt" value="SAVE">
+	</div>
+</div>
+</html>

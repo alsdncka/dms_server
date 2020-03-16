@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.di.xyz.Users.UsersMapper">
+
+	
+
+	<insert id="addUser" parameterType="userVo" >
+		INSERT INTO DMS_USERS
+		(
+		USER_UID,
+		USER_ID,
+		USER_NAME,
+		USER_PW,
+		USER_EMAIL,
+		USER_ROLE,
+		REG_DTM,
+		REG_USER,
+		UDT_DTM
+		)
+		VALUES
+		(
+		#{userUid},
+		#{userId},
+		#{userName},
+		#{userPw},
+		#{userEmail},
+		#{userRole},
+		#{regDtm},
+		#{regUser},
+		#{udtDtm}
+		)
+		
+	</insert>
+	
+	<update id="editUser" parameterType="userVo" >
+	UPDATE DMS_USERS SET
+	USER_NAME = #{userName},
+	<if test="userPw != null and userPw != '' ">
+		USER_PW = ${userPw},
+	</if>
+	USER_EMAIL = #{userEmail},
+	USER_ROLE = #{userRole},
+	UDT_DTM = #{udtDtm}
+	WHERE 1=1
+	AND USER_ID = #{userId}
+	</update>
+	
+	<select id="getUser" parameterType="userVo" resultType="userVo">
+	SELECT * FROM DMS_USERS 
+	WHERE 1=1
+	<if test="userId != null and userId != '' ">
+	AND USER_ID = #{userId}
+	</if>
+	<if test="userUid != null and userUid != '' ">
+	AND USER_UID = #{userUid}
+	</if>
+	
+	
+	
+	</select>
+	
+	<select id="getUserList" parameterType="userVo" resultType="userVo">
+	SELECT * FROM DMS_USERS
+	WHERE 1=1
+	<if test="userRole != null and userRole != '' ">
+	AND USER_ROLE = #{userRole}
+	</if>
+	
+	
+	</select>
+
+</mapper>

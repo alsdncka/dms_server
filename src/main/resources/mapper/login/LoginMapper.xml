@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.di.xyz.Login.LoginMapper">
+
+	
+
+	<select id="addUser" resultType="userVo">
+		SELECT
+		'A' AS USER_UID,
+		'A' AS USER_ID
+		FROM DUAL
+	</select>
+
+</mapper>

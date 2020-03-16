@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.di.xyz.Common.CommonMapper">
+
+
+
+	<update id="createUsersTable">
+
+		CREATE TABLE DMS_USERS(
+		USER_UID VARCHAR2(100),
+		USER_ID VARCHAR2(100),
+		USER_NAME VARCHAR2(100),
+		USER_PW VARCHAR2(100),
+		USER_EMAIL VARCHAR(100),
+		USER_ROLE VARCHAR2(100),
+		REG_DTM TIMESTAMP,
+		REG_USER VARCHAR2(100),
+		UDT_DTM TIMESTAMP
+		)
+
+	</update>
+	
+	<update id="createConnectionTable">
+
+		CREATE TABLE DMS_CONNECTION(
+conn_id VARCHAR2(100),
+conn_name varchar2(100),
+conn_type varchar2(100),
+conn_db_type varchar2(100),
+conn_string varchar2(100),
+conn_code_page varchar2(100),
+conn_user varchar2(100),
+conn_pw varchar2(100),
+reg_dtm timestamp,
+udt_dtm TIMESTAMP,
+reg_user VARCHAR2(100)
+)
+
+	</update>
+	
+		<update id="createRequestTable">
+
+	CREATE TABLE DMS_REQUEST(
+	req_id VARCHAR2(100),
+	req_name VARCHAR2(100),
+	req_user VARCHAR2(100),
+	res_user VARCHAR2(100),
+	req_logic_id VARCHAR2(100),
+	req_DESC varchar2(1000),
+	req_status VARCHAR2(100),
+	req_date timestamp,
+	reg_dtm timestamp,
+	udt_dtm timestamp
+)
+
+	</update>
+	
+			<update id="createLogicTable">
+
+CREATE TABLE DMS_LOGIC(
+	LOGIC_ID VARCHAR2(100),
+	LOGIC_DESC VARCHAR2(100),
+	LOGIC_NAME VARCHAR2(100),
+	REG_DTM TIMESTAMP,
+	REG_USER VARCHAR(100)
+)
+
+	</update>
+	
+			<update id="createTableTable">
+
+CREATE TABLE DMS_TABLE(
+	LOGIC_ID VARCHAR2(100),
+	TAB_TYPE VARCHAR2(100),
+	TAB_OWNER VARCHAR2(100),
+	TAB_CONNECTION_ID VARCHAR2(100),
+	TAB_ID VARCHAR2(100),
+	TAB_NAME VARCHAR2(100)
+)
+
+	</update>
+	
+			<update id="createColTable">
+
+CREATE TABLE DMS_COL(
+	TAB_ID VARCHAR2(100),
+	COL_ID VARCHAR2(100),
+	COL_NAME VARCHAR2(100),
+	COL_TYPE VARCHAR2(100),
+	COL_LENG VARCHAR2(100)
+
+)
+
+	</update>
+	
+	<update id="createQueryTable">
+		CREATE TABLE DMS_QUERY(
+	LOGIC_ID VARCHAR2(100),
+	Q_ID VARCHAR2(100),
+	Q_TYPE VARCHAR2(100),
+	Q_STRING VARCHAR2(100)
+)
+	</update>
+	
+	
+	<update id="dropUsersTable">
+	DROP TABLE DMS_USERS
+	</update>
+
+<update id="dropConnectionTable">
+	DROP TABLE DMS_CONNECTION
+	</update>
+	<update id="dropRequestTable">
+	DROP TABLE DMS_REQUEST
+	</update>
+	<update id="dropLogicTable">
+	DROP TABLE DMS_LOGIC
+	</update>
+	<update id="dropTableTable">
+	DROP TABLE DMS_TABLE
+	</update>
+	<update id="dropColTable">
+	DROP TABLE DMS_COL
+	</update>
+	
+	<update id="dropQueryTable">
+	
+	DROP TABLE DMS_QUERY
+	</update>
+
+</mapper>

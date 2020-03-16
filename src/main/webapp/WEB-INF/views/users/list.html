@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="common/layout/default">
+
+
+
+<div class="content" layout:fragment="content">
+	<div class="content_box">
+	<div class="main_box">
+	
+		<div class="caption">
+			<div class="title">USER LIST</div>
+			<div class="bt_div">
+				<button id="addModalBt">유저 추가</button>
+		</div>
+		</div>
+		<div class="box2">
+			<table class="w1">
+				<colgroup>
+				<col width="20%">
+				<col width="20%">
+				<col width="20%">
+				<col width="20%">
+				<col width="20%">
+				</colgroup>
+				<thead>
+					<tr>
+						<th>역활</th>
+						<th>아이디</th>
+						<th>이름</th>
+						<th>이메일</th>
+						<th>생성 일자<th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr th:each=list:${list} class="list_item" th:id=${list.userId}>
+				<td th:if="${list.userRole}=='R' " >설계자</td>
+				<td th:if="${list.userRole}=='D' " >개발자</td>
+				<td th:text=${list.userId} ></td>
+				<td th:text=${list.userName} ></td>
+				<td th:text=${list.userEmail} ></td>
+				<td th:text=${list.regDtm} ></td>
+				</tr>
+				
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div id="userModal"></div>
+</div>
+</html>

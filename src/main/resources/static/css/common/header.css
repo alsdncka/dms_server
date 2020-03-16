@@ -1,0 +1,69 @@
+.header_nav{
+	display: flex;
+	flex-direction: row;
+	height: 60px;
+	line-height: 60px;
+	background-color: rgba(0,0,0,0.8);
+}
+
+.logo{
+	
+width:350px;
+min-width:300px;
+text-align: center;
+background-color: black;
+color: white;
+cursor: pointer;
+
+}
+
+.menus{
+	flex:1;
+	text-align: center;
+}
+
+.A_menu{
+	width: 500px;
+	margin: auto;
+}
+
+.A_menu li{
+	width:100px;
+	list-style: none;
+	float: left;
+	cursor: pointer;
+	color: white;
+}
+
+.A_menu li:hover{
+	font-weight: bold;
+}
+
+.user_menu{
+	width: 200px;
+	margin: auto;
+	
+}
+
+.user_menu li{
+	width:70px;
+	list-style: none;
+	float: left;
+}
+
+.user_menu .img_bt{
+	width: 30px;
+	height: 30px;
+	background-size: 100% 100%;
+	vertical-align: middle;
+	margin-right: 30px;
+	cursor: pointer;
+}
+
+.user_menu .login_bt{
+	background-image: url("/dms/static/img/008-login.png");
+}
+
+.user_menu .info_bt{
+	background-image: url("/dms/static/img/007-megaphone.png");  
+}

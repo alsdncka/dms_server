@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.di.xyz.Request.RequestMapper">
+	
+
+	<select id="getTargetList" parameterType="targetVo" resultType="targetVo">
+		SELECT * FROM DMS_TARGET
+		WHERE 1=1
+		<if test="targetName != null and targetName != '' ">
+		AND TARGET_NAME = #{targetName} 
+		</if>
+		ORDER BY target_num
+	</select>
+	
+
+	
+	<select id="getTarget" parameterType="targetVo" resultType="targetVo">
+		SELECT * FROM DMS_TARGET 
+		WHERE 1=1 
+		<if test="targetName != null and targetName != ''">
+		AND TARGET_NAME = #{targetName}	
+		</if>
+		<if test="targetId != null and targetId != ''">
+		AND TARGET_ID = #{targetId}	
+		</if>
+	</select>
+	
+	<select id="getTargetNameCount" parameterType="targetVo" resultType="java.lang.Integer">
+		SELECT 
+		COUNT(1) 
+		FROM DMS_TARGET
+		WHERE 1=1 
+		<if test="targetName != null and targetName != ''">
+		AND TARGET_NAME = #{targetName}	
+		</if>
+		AND TARGET_ID != #{targetId}
+	</select>
+	
+	<delete id="deleteTarget" parameterType="targetVo">
+		DELETE FROM DMS_TARGET
+		WHERE TARGET_ID = #{targetId}
+	</delete>
+	
+	<select id="getTargetMaxNum" parameterType="targetVo" resultType="java.lang.Integer">
+		SELECT NVL(MAX(TARGET_NUM)+1,1) FROM DMS_TARGET
+	</select>
+	
+	<insert id="addTarget" parameterType="targetVo">
+		INSERT INTO DMS_TARGET(
+		TARGET_ID,
+		TARGET_NUM,
+		TARGET_NAME
+		)VALUES(
+		#{targetId},
+		${targetNum},
+		#{targetName}
+		)
+		
+	</insert>
+	
+	<update id="editTarget" parameterType="targetVo">
+		UPDATE DMS_TARGET SET TARGET_NAME = #{targetName}
+		WHERE TARGET_ID = #{targetId}
+	
+	</update>
+	
+
+	
+	<select id="getLogicMaxNum" parameterType="logicVo" resultType="java.lang.Integer">
+	SELECT NVL(MAX(LOGIC_NUM)+1,1) 
+	FROM DMS_LOGIC 
+	WHERE TARGET_ID = #{targetId}
+	</select>
+	
+	<insert id="addLogic" parameterType="logicVo">
+		INSERT INTO DMS_LOGIC(
+		TARGET_ID,
+		LOGIC_ID,
+		LOGIC_NUM,
+		LOGIC_VERSION,
+		LOGIC_NAME,
+		REG_USR,
+		REG_DTM
+		)VALUES(
+		#{targetId},
+		#{logicId},
+		#{logicNum},
+		0,
+		#{logicName},
+		#{regUsr},
+		systimestamp
+		)
+		
+	</insert>
+	
+	<select id="getLogicList" parameterType="logicVo" resultType="logicVo">
+		SELECT * FROM DMS_LOGIC
+		WHERE 1=1
+		<if test="targetId != null and targetId != ''">
+		AND TARGET_ID = #{targetId}
+		</if>
+		<if test="logicId != null and logicId != ''">
+		AND LOGIC_ID = #{logicId}
+		</if>
+		ORDER BY LOGIC_NUM
+	
+	</select>
+	
+	<select id="getLogic" parameterType="logicVo" resultType="logicVo">
+		SELECT * FROM DMS_LOGIC
+		WHERE 1=1
+		<if test="logicId != null and logicId != ''">
+		AND LOGIC_ID = #{logicId}
+		</if>
+	</select>
+	
+	<delete id="deleteLogic" parameterType="logicVo">
+		DELETE FROM DMS_LOGIC
+		WHERE 1=1
+		AND LOGIC_ID = #{logicId}
+	
+	</delete>
+	
+	<select id="getSourceConnectionList" parameterType="logicVo" resultType="sourceConnectionVo">
+		SELECT * FROM DMS_SOURCE_CONN
+		WHERE  LOGIC_ID = #{logicId}
+		
+	</select>
+	<select id="getSourceConnectionCount" parameterType="logicVo" resultType="java.lang.Integer">
+	SELECT COUNT(1) FROM DMS_SOURCE_CONN
+		WHERE  LOGIC_ID = #{logicId}
+	</select>
+
+	<insert id="addSourceConnection" parameterType="sourceConnectionVo">
+		INSERT INTO DMS_SOURCE_CONN(
+		LOGIC_ID,
+		SOURCE_CONN_ID,
+		SOURCE_CONN_NUM,
+		REG_USR,
+		REG_DTM
+		)VALUES(
+		#{logicId},
+		#{sourceConnId},
+		${sourceConnNum},
+		#{regUsr},
+		systimestamp
+		)
+	</insert>
+	
+	<delete id="deleteAllSourceConnection" parameterType="logicVo">
+		DELETE FROM DMS_SOURCE_CONN 
+		WHERE 1=1
+		AND LOGIC_ID = #{logicId} 
+	
+	
+	</delete>
+	
+		<select id="getTargetConnectionList" parameterType="logicVo" resultType="targetConnectionVo">
+		SELECT * FROM DMS_TARGET_CONN
+		WHERE  LOGIC_ID = #{logicId}
+		
+	</select>
+	
+	<select id="getTargetConnectionCount" parameterType="logicVo" resultType="java.lang.Integer">
+	SELECT COUNT(1) FROM DMS_TARGET_CONN
+		WHERE  LOGIC_ID = #{logicId}
+	</select>
+
+	<insert id="addTargetConnection" parameterType="targetConnectionVo">
+		INSERT INTO DMS_TARGET_CONN(
+		LOGIC_ID,
+		TARGET_CONN_ID,
+		TARGET_CONN_NUM,
+		REG_USR,
+		REG_DTM
+		)VALUES(
+		#{logicId},
+		#{targetConnId},
+		${targetConnNum},
+		#{regUsr},
+		systimestamp
+		)
+	</insert>
+	
+	<delete id="deleteAllTargetConnection" parameterType="logicVo">
+		DELETE FROM DMS_TARGET_CONN 
+		WHERE 1=1
+		AND LOGIC_ID = #{logicId} 
+	
+	
+	</delete>
+	
+	
+	<insert id="addStep" parameterType="stepVo" >
+		INSERT INTO DMS_LOGIC_STEP(
+			LOGIC_ID,
+			STEP_ID,
+			STEP_NUM,
+			STEP_TYPE,
+			STEP_QUERY_FILE,
+			STEP_COMMENT
+		)VALUES(
+			#{logicId},
+			#{stepId},
+			#{stepNum},
+			#{stepType},
+			#{stepQueryFile},
+			#{stepComment}
+		)
+		
+	</insert>
+	
+	<delete id="deleteAllStep" parameterType="logicVo">
+	
+		DELETE FROM DMS_LOGIC_STEP WHERE 1=1
+		AND LOGIC_ID = #{logicId}
+	
+	</delete>
+	
+	<select id="getStepList" parameterType="logicVo" resultType="stepVo">
+		SELECT * FROM DMS_LOGIC_STEP
+		WHERE LOGIC_ID =#{logicId}
+		ORDER BY STEP_NUM
+	
+	</select>
+	
+	<insert id="addSourceColumn" parameterType="sourceColumnVo" >
+		INSERT INTO DMS_SOURCE_COLUMN(
+		LOGIC_ID,
+		SOURCE_COLUMN_NUM,
+		SOURCE_COLUMN_NAME		
+		)VALUES(
+		#{logicId},
+		${sourceColumnNum},
+		#{sourceColumnName}
+		)
+	</insert>
+	
+	<select id="getSourceColumnList" parameterType="logicVo" resultType="sourceColumnVo">
+		SELECT * FROM DMS_SOURCE_COLUMN
+		WHERE 1=1
+		AND LOGIC_ID = #{logicId}
+		ORDER BY SOURCE_COLUMN_NUM
+	</select>
+	
+	<delete id="deleteAllSourceColumn" parameterType="logicVo" >
+		DELETE FROM DMS_SOURCE_COLUMN WHERE LOGIC_ID = #{logicId}
+	</delete>
+	
+	<insert id="addTargetColumn" parameterType="targetColumnVo">
+		INSERT INTO DMS_TARGET_COLUMN(
+		LOGIC_ID,
+		TARGET_COLUMN_NUM,
+		TARGET_COLUMN_NAME		
+		)VALUES(
+		#{logicId},
+		${targetColumnNum},
+		#{targetColumnName}
+		)
+	</insert>
+	
+	
+	
+	<select id="getTargetColumnList" parameterType="logicVo" resultType="targetColumnVo">
+		SELECT * FROM DMS_TARGET_COLUMN
+		WHERE 1=1
+		AND LOGIC_ID = #{logicId}
+		ORDER BY TARGET_COLUMN_NUM
+	</select>
+	
+	<delete id="deleteAllTargetColumn" parameterType="logicVo" >
+		DELETE FROM DMS_TARGET_COLUMN WHERE LOGIC_ID = #{logicId}
+	</delete>
+	
+	<select id="getMappingList" parameterType="logicVo" resultType="mappingVo"> 
+		SELECT * FROM DMS_LOGIC_MAPPING
+		WHERE 1=1 
+		AND LOGIC_ID =#{logicId}
+	
+	</select>
+	
+	
+	
+	<insert id="addMapping" parameterType="mappingVo" >
+		INSERT INTO DMS_LOGIC_MAPPING(
+		LOGIC_ID,
+		SOURCE_COLUMN_NAME,
+		TARGET_COLUMN_NAME
+		)VALUES(
+		#{logicId},
+		#{sourceColumnName},
+		#{targetColumnName}
+		)
+	</insert>
+	
+	<delete id="deleteAllMapping" parameterType="logicVo">
+		DELETE FROM DMS_LOGIC_MAPPING WHERE 1=1
+		AND LOGIC_ID = #{logicId}		
+	
+	</delete>
+	
+	
+	<select id="getMappingSize" parameterType="logicVo" resultType="java.lang.Integer">
+		SELECT COUNT(1) FROM DMS_LOGIC_MAPPING
+		WHERE 1=1
+		AND LOGIC_ID = #{logicId}
+	</select>
+	
+	<select id="getStepSize" parameterType="logicVo" resultType="java.lang.Integer">
+		SELECT COUNT(1) FROM DMS_LOGIC_STEP
+		WHERE 1=1
+		AND LOGIC_ID = #{logicId}
+	</select>
+
+</mapper>

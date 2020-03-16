@@ -1,0 +1,22 @@
+.left{
+	background-color: rgba(0,0,0,0.8);
+	color: white;
+	text-align: center;
+	height: 100%;
+
+}
+
+.sub_cate{
+	height:50px;
+	line-height:50px;
+	text-align:center;
+
+}
+.sub_cate:hover{
+	background-color: black;
+	cursor: pointer;
+}
+
+.sub_cate span{
+	
+}
